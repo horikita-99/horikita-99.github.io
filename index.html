@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harshiddhi Pathak</title>
+<meta name="description" content="Harshiddhi Pathak PhD researcher, Brain-Computer Interfaces & Multimodal Neuroimaging, IIT Gandhinagar">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root{
+    --bg: #F5F6F3;
+    --panel: #FFFFFF;
+    --ink: #14181F;
+    --slate: #4B5563;
+    --slate-soft: #7A8388;
+    --line: #DBDFD8;
+    --accent: #1F6F5C;
+    --accent-soft: #E8F1EC;
+    --amber: #B5651D;
+    --maxw: 760px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', -apple-system, sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:500;
+    line-height:1.15;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+
+  a{ color:var(--accent); text-decoration:none; border-bottom:1px solid transparent; }
+  a:hover{ border-bottom-color: var(--accent); }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+
+  .mono{ font-family:'IBM Plex Mono', monospace; }
+
+  /* ---------- layout shell ---------- */
+  .wrap{ max-width: var(--maxw); margin:0 auto; padding: 0 28px; }
+
+  header.site-nav{
+    position: sticky; top:0; z-index:20;
+    background: rgba(245,246,243,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width: var(--maxw); margin:0 auto; padding: 16px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .nav-mark{
+    font-family:'Fraunces', serif; font-weight:600; font-size:1.05rem;
+    color:var(--ink); border:none;
+  }
+  .nav-links{ display:flex; gap:22px; font-size:0.92rem; }
+  .nav-links a{ color:var(--slate); border:none; }
+  .nav-links a:hover{ color:var(--accent); }
+
+  section{ padding: 64px 0; border-bottom:1px solid var(--line); }
+  section:last-of-type{ border-bottom:none; }
+  section h2{ font-size:1.5rem; margin-bottom: 28px; }
+
+  .lede{ color:var(--slate); max-width: 56ch; }
+
+  /* ---------- hero ---------- */
+  .hero{ padding-top: 56px; padding-bottom: 48px; border-bottom:1px solid var(--line); }
+  .hero-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:40px;
+    flex-wrap:wrap;
+  }
+  .hero-content{
+    flex:1;
+    min-width:280px;
+  }
+
+  .profile-wrapper{
+    flex-shrink:0;
+  }
+
+  .profile-img{
+    width:130px;
+    height:130px;
+    object-fit:cover;
+    border-radius:50%;
+    border:4px solid var(--accent-soft);
+  }
+
+  .hero h1{ font-size: 2.35rem; }
+
+  .hero .role{
+    margin-top:10px; color:var(--slate); font-size:1.02rem; max-width: 46ch;
+  }
+  .hero .role strong{ color:var(--ink); font-weight:500; }
+
+  .eeg-box{ width: 100%; margin-top: 32px; }
+  .eeg-box svg{ width:100%; height:auto; display:block; }
+  .eeg-path{
+    fill:none; stroke:var(--accent); stroke-width:1.6;
+    stroke-linecap:round; stroke-linejoin:round;
+  }
+  .eeg-draw{
+    stroke-dasharray: 1400;
+    stroke-dashoffset: 1400;
+    animation: draw 2.4s ease-out 0.2s forwards;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .eeg-draw{ animation:none; stroke-dashoffset:0; }
+  }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+  .links-row{
+    margin-top:26px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px 24px;
+    font-size:0.92rem;
+  }
+
+  .links-row a{
+    color:var(--ink);
+    border-bottom:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    gap:7px;
+    transition:all 0.2s ease;
+  }
+
+  .links-row a i{
+    font-size:1rem;
+  }
+
+  .links-row a:hover{
+    border-bottom-color:var(--accent);
+    color:var(--accent);
+  }
+
+  .links-row a:hover i{
+    transform:translateY(-1px);
+  }
+
+  /* ---------- research focus ---------- */
+  .focus-grid{
+    display:grid; grid-template-columns: 1fr 1fr; gap: 22px 32px;
+    margin-top: 24px;
+  }
+  .focus-item{ border-top:1px solid var(--line); padding-top:14px; }
+  .focus-item h3{
+    font-family:'IBM Plex Sans'; font-weight:600; font-size:0.98rem; color:var(--ink);
+    margin-bottom:6px;
+  }
+  .focus-item p{ margin:0; color:var(--slate); font-size:0.93rem; }
+
+  /* ---------- education timeline ---------- */
+  .timeline{ margin-top: 8px; }
+  .tl-item{
+    display:grid; grid-template-columns: 108px 10px 1fr; gap: 0 18px;
+    position:relative; padding-bottom: 34px;
+  }
+  .tl-item:last-child{ padding-bottom:0; }
+  .tl-date{ font-family:'IBM Plex Mono'; font-size:0.8rem; color:var(--slate-soft); padding-top:3px; }
+  .tl-rail{ display:flex; flex-direction:column; align-items:center; }
+  .tl-dot{ width:9px; height:9px; border-radius:50%; background:var(--line); border:2px solid var(--bg); margin-top:5px; z-index:1; }
+  .tl-dot.current{ background:var(--amber); }
+  .tl-line{ width:1px; flex:1; background:var(--line); margin-top:2px; }
+  .tl-body h3{ font-size:1.05rem; font-weight:500; }
+  .tl-body .degree{color:var(--slate);font-size:0.93rem;margin-top:3px;}
+  .tl-body .school{ color:var(--accent); font-size:0.93rem; margin-top:2px; }
+  .tl-body p{ color:var(--slate); font-size:0.92rem; margin: 8px 0 0; }
+
+  /* ---------- projects ---------- */
+  .proj{ padding: 22px 0; border-top:1px solid var(--line); }
+  .proj:first-of-type{ border-top:1px solid var(--line); }
+  .proj h3{ font-size:1.08rem; font-weight:500; }
+  .proj p{ color:var(--slate); font-size:0.94rem; margin: 8px 0 0; }
+  .proj .metrics{
+    margin-top:10px; display:flex; flex-wrap:wrap; gap:8px;
+  }
+  .metric{
+    font-family:'IBM Plex Mono'; font-size:0.78rem; color:var(--accent);
+    background: var(--accent-soft); padding: 3px 9px; border-radius:3px;
+  }
+
+  /* ---------- publications ---------- */
+  .pub-list{ counter-reset: pub; }
+  .pub{
+    counter-increment: pub;
+    display:flex; gap:16px; padding: 16px 0; border-top:1px solid var(--line);
+  }
+  .pub::before{
+    content: counter(pub) ".";
+    font-family:'IBM Plex Mono'; color:var(--slate-soft); font-size:0.88rem;
+    padding-top:1px; flex-shrink:0; width:18px;
+  }
+  .pub-body p{ margin:0; font-size:0.95rem; }
+  .pub-body .venue{ color:var(--slate); font-size:0.88rem; margin-top:4px; }
+  .pub-body .tag{
+    display:inline-block; margin-top:6px; font-family:'IBM Plex Mono'; font-size:0.72rem;
+    color:var(--accent); background:var(--accent-soft); padding:2px 7px; border-radius:3px;
+  }
+
+  /* ---------- experience ---------- */
+  .exp{ padding: 18px 0; border-top:1px solid var(--line); }
+  .exp-head{ display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+  .exp-head h3{ font-size:1.02rem; font-weight:500; }
+  .exp-head .when{ font-family:'IBM Plex Mono'; font-size:0.8rem; color:var(--slate-soft); white-space:nowrap; }
+  .exp .org{ color:var(--accent); font-size:0.92rem; margin-top:2px; }
+  .exp p.desc{ color:var(--slate); font-size:0.92rem; margin:8px 0 0; }
+
+  /* ---------- misc lists (certs / conferences) ---------- */
+  .subhead{ font-size:1rem; font-weight:600; margin: 30px 0 12px; font-family:'IBM Plex Sans'; }
+  .subhead:first-child{ margin-top:0; }
+  ul.plain{ list-style:none; margin:0; padding:0; }
+  ul.plain li{
+    padding: 10px 0; border-top:1px solid var(--line); font-size:0.93rem; color:var(--slate);
+  }
+  ul.plain li strong{ color:var(--ink); font-weight:500; }
+
+  /* ---------- footer ---------- */
+  footer{ padding: 48px 0 64px; }
+  footer .foot-row{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;
+  }
+  footer .links-row{ margin-top:0; }
+  footer .copy{ color:var(--slate-soft); font-size:0.82rem; }
+
+  @media (max-width: 620px){
+    .wrap, .nav-inner{ padding-left:20px; padding-right:20px; }
+    .hero h1{ font-size:1.9rem; }
+    .focus-grid{ grid-template-columns: 1fr; }
+    .nav-links{ gap:14px; font-size:0.85rem; }
+    .tl-item{ grid-template-columns: 74px 10px 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-mark">HP</a>
+    <nav class="nav-links">
+      <a href="#research">Research</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#publications">Publications</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-top">
+    <div class="hero-content">
+        <h1>Harshiddhi Pathak</h1>
+
+        <p class="role">
+            PhD Researcher in Computer Science & Engineering at 
+            IIT Gandhinagar, working in Artificial Intelligence.
+        </p>
+
+        <p class="hero-description">
+            My research focuses on Brain-Computer Interfaces,
+            multimodal neuroimaging, and deep learning for early
+            detection of neurodegenerative disorders.
+        </p>
+    </div>
+
+    <div class="profile-wrapper">
+        <img src="assets/profile.jpg"
+             alt="Harshiddhi Pathak"
+             class="profile-img">
+    </div>
+  </div>
+
+
+    <div class="eeg-box" aria-hidden="true">
+      <svg viewBox="0 0 700 110" preserveAspectRatio="none">
+        <path class="eeg-path eeg-draw" d="M0,55 L40,55 L52,55 L58,20 L64,90 L70,55 L110,55 L120,55 L128,40 L134,68 L140,55 L200,55 L210,54 L218,15 L224,95 L228,45 L232,60 L238,55 L300,56 L308,55 L316,30 L322,78 L328,50 L332,58 L338,55 L400,55 L410,55 L418,10 L424,100 L430,40 L436,62 L442,55 L510,55 L520,54 L528,25 L534,82 L540,48 L544,58 L548,55 L610,55 L618,55 L626,18 L632,92 L638,55 L700,55" />
+      </svg>
+    </div>
+
+    <div class="links-row">
+
+      <a href="mailto:harshiddhipathak@gmail.com">
+        <i class="fa-solid fa-envelope"></i> Email
+      </a>
+
+      <a href="assets/Harshiddhi_Pathak_CV.pdf" target="_blank">
+        <i class="fa-solid fa-file-lines"></i> CV
+      </a>
+
+      <a href="https://linkedin.com/in/harshiddhi-pathak-541283223"
+       target="_blank"
+       rel="noopener">
+        <i class="fa-brands fa-linkedin"></i> LinkedIn
+      </a>
+
+      <a href="https://github.com/horikita-99"
+       target="_blank"
+       rel="noopener">
+        <i class="fa-brands fa-github"></i> GitHub
+      </a>
+
+
+      <a href="https://scholar.google.com/citations?user=zKBd9egAAAAJ&hl=en" target="_blank">
+        <i class="fa-solid fa-graduation-cap"></i> Scholar
+    </a>
+
+
+</div>
+
+
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research">
+    <h2>Research</h2>
+    <p class="lede">My research lies at the intersection of artificial intelligence,
+    neuroscience, and biomedical engineering. I develop deep learning
+    models for Brain-Computer Interfaces and multimodal neuroimaging,
+    combining EEG, MRI, and fMRI to understand and classify
+    neurodegenerative disorders such as Alzheimer's disease and dementia.</p>
+
+    <div class="focus-grid">
+      <div class="focus-item">
+        <h3>Brain–computer interfaces</h3>
+        <p>EEG signal acquisition and decoding for neurodegenerative disorder classification and early diagnosis.</p>
+      </div>
+      <div class="focus-item">
+        <h3>Multimodal medical imaging</h3>
+        <p>Cross-attention fusion of MRI and fMRI for early Alzheimer's disease detection.</p>
+      </div>
+      <div class="focus-item">
+        <h3>Deep learning for neuroscience</h3>
+        <p>Graph Attention Networks over Synchrosqueezed Chirplet Transform (SCT)–derived EEG features.</p>
+      </div>
+      <div class="focus-item">
+        <h3>Biomedical signal processing</h3>
+        <p>Sensor-based physiological monitoring and instrumentation for clinical and diagnostic use.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <h2>Education</h2>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-date">2026 —<br>present</div>
+        <div class="tl-rail"><div class="tl-dot current"></div><div class="tl-line"></div></div>
+        <div class="tl-body">
+          <h3>Doctor of Philosophy (PhD)</h3>
+          <div class="degree">Artificial Intelligence</div>
+          <div class="school">
+                     Indian Institute of Technology Gandhinagar
+          </div>
+          <p>Supervisor: Dr. Yogesh Kumar Meena. Coursework: Deep Learning, Human Computer Interaction, Natural Language Processing.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">2024 –<br>2026</div>
+        <div class="tl-rail"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-body">
+          <h3>Master of Technology (M.Tech) <span class="mono" style="color:var(--slate-soft); font-size:0.82rem;">· CGPA 9.09/10</span></h3>
+          <div class="degree">Biomedical Engineering</div>
+          <div class="school">Indian Institute of Technology Kharagpur</div>
+          <p>Thesis: "Cross-Attention Based Fusion of MRI and fMRI for Early Alzheimer's Disease Detection," advised by Prof. Manjunatha Mahadevappa and Dr. Mrinal Acharya.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">2020 –<br>2024</div>
+        <div class="tl-rail"><div class="tl-dot"></div></div>
+        <div class="tl-body">
+          <h3>B.E., Biomedical Engineering <span class="mono" style="color:var(--slate-soft); font-size:0.82rem;">· CGPA 8.91/10</span></h3>
+          <div class="school">Gujarat Technological University, Ahmedabad</div>
+          <p>Focus: biomedical signals, medical imaging, biomedical instrumentation.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <div class="proj">
+      <h3>Cross-attention fusion of MRI and fMRI for early Alzheimer's detection</h3>
+      <p>End-to-end FSL preprocessing pipeline (BET, registration, VBM) extracting ROI-level gray-matter and functional-connectivity features, fused via self- and cross-attention in PyTorch.</p>
+      <div class="metrics">
+        <span class="metric">MRI acc 91%</span>
+        <span class="metric">fMRI acc 88.95%</span>
+        <span class="metric">ROC-AUC 0.90</span>
+      </div>
+    </div>
+
+    <div class="proj">
+      <h3>Graph Attention Networks with SCT-derived EEG features</h3>
+      <p>A GAT-based framework modeling spatio-temporal dependencies in EEG for Alzheimer's and dementia classification, using Synchrosqueezed Chirplet Transform features.</p>
+      <div class="metrics">
+        <span class="metric">92.31% AD vs. CN</span>
+        <span class="metric">83.33% multi-class</span>
+      </div>
+    </div>
+
+    <div class="proj">
+      <h3>Bone segmentation from X-ray images</h3>
+      <p>Benchmarked Watershed, Superpixel, and U-Net architectures on the MURA dataset.</p>
+      <div class="metrics"><span class="metric">Dice 0.978 (U-Net)</span></div>
+    </div>
+
+    <div class="proj">
+      <h3>EMG measurement device using pressure sensors</h3>
+      <p>Designed and validated a flex-sensor-based EMG measurement device for diabetic neuropathy monitoring.</p>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <h2>Publications</h2>
+    <div class="pub-list">
+      <div class="pub">
+        <div class="pub-body">
+          <p>H. Pathak et al., "An Attention-Based Framework for Alzheimer's Disease Classification Using Resting-State fMRI."</p>
+          <div class="venue">IEEE EMBC 2026, Toronto, Canada, Jul 26–30, 2026</div>
+          <span class="tag">Presented</span>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="pub-body">
+          <p>"Graph Attention Networks with SCT-Derived EEG Features for Alzheimer's and Dementia Classification."</p>
+          <div class="venue">Manuscript in preparation — targeting Journal of Neural Engineering</div>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="pub-body">
+          <p>"Cross-Attention Based Fusion of MRI and fMRI for Early Alzheimer's Disease Detection."</p>
+          <div class="venue">In preparation</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <div class="exp">
+      <div class="exp-head">
+        <h3>Teaching Assistant, Machine Learning</h3>
+        <div class="when">Aug 2026 — present</div>
+      </div>
+      <div class="org">IIT Gandhinagar</div>
+    </div>
+
+    <div class="exp">
+      <div class="exp-head">
+        <h3>Teaching Assistant, Biomedical Instrumentation Lab</h3>
+        <div class="when">Jul — Nov 2025</div>
+      </div>
+      <div class="org">IIT Kharagpur</div>
+      <p class="desc">Assisted with course delivery, lab supervision, assignment design, and evaluation.</p>
+    </div>
+
+    <div class="exp">
+      <div class="exp-head">
+        <h3>Research Intern, Neuromorphic Research Team</h3>
+        <div class="when">Jun 2024 — Dec 2025</div>
+      </div>
+      <div class="org">JSA LAABS Pvt. Ltd. (Remote)</div>
+      <p class="desc">Worked with Spiking Neural Networks and advanced attention mechanisms within complex research codebases.</p>
+    </div>
+  </section>
+
+  <!-- MORE: certifications + conferences -->
+  <section id="more">
+    <h2>More</h2>
+
+    <div class="subhead">Conferences &amp; workshops</div>
+    <ul class="plain">
+      <li><strong>IEEE-EMBS BHI '25</strong>, Atlanta — Data competition on predicting meal carbohydrate caloric ratio from 3-hour PPGR. Team "EDAers," global finalist (top 4).</li>
+      <li><strong>RadMed Conference 2025</strong>, IIT Kharagpur — Poster: "EEG-Based Seizure Detection Using Chirplet Transform and Graph Attention Neural Networks."</li>
+    </ul>
+
+    <div class="subhead">Certifications</div>
+    <ul class="plain">
+      <li><strong>Machine Learning for Engineering and Science Applications</strong> — NPTEL, Jan–Apr 2025</li>
+      <li><strong>Machine Learning</strong> — IIT Roorkee (online certification)</li>
+    </ul>
+  </section>
+
+  <!-- CONTACT / FOOTER -->
+  <footer id="contact">
+    <h2 style="margin-bottom:18px;">Get in touch</h2>
+    <p class="lede" style="margin-bottom:22px;">Reach out about collaboration, EEG/neuroimaging datasets, or anything in the work above.</p>
+    <div class="links-row">
+
+      <a href="mailto:harshiddhipathak@gmail.com">
+        <i class="fa-solid fa-envelope"></i>
+        Email
+      </a>
+
+      <a href="https://linkedin.com/in/harshiddhi-pathak-541283223"
+       target="_blank" rel="noopener">
+        <i class="fa-brands fa-linkedin"></i>
+        LinkedIn
+      </a>
+
+      <a href="https://github.com/horikita-99"
+       target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-github"></i>
+        GitHub
+      </a>
+
+    </div>
+      <div class="copy">© 2026 Harshiddhi Pathak</div>
+    </div>
+  </footer>
+
+</main>
+
+</body>
+</html>
